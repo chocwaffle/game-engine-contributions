@@ -18,11 +18,9 @@ Contents:
 ====================================================================================*/
 namespace btEngine
 {
-    bool Engine::initialize() {
-
-       
+    bool Engine::initialize()
+    { 
         TEA_INFO("-------------------- Engine Lib ---------------------");
-
         // Initialize system in order
         if (!mWindow->initialize("GAM 300", "config.json"))
         {
@@ -59,7 +57,8 @@ namespace btEngine
         return true;
     }
    
-    void Engine::shutdown(entt::registry* registry) {	
+    void Engine::shutdown(entt::registry* registry) 
+   {	
 	// Terminate system in reverse order relative to initializations
         graphicsSystem->shutdown(registry);
         particleSystem->shutdown(registry);
