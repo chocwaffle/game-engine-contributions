@@ -26,18 +26,15 @@ namespace btEngine
         // Initialize system in order
         if (!mWindow->initialize("GAM 300", "config.json"))
         {
-			TEA_ERROR("Window System failed to initialize");          
-
+	     TEA_ERROR("Window System failed to initialize");          
         }
         if (!physicsSystem->initialize())
         {
-            TEA_ERROR("Physics System fail to initialze");
-
+             TEA_ERROR("Physics System fail to initialze");
         }
         if (!audioSystem->initialize())
         {
             TEA_ERROR("Audio System fail to initialze");         
-
         }
 
         if (!particleSystem->initialize())
@@ -50,27 +47,25 @@ namespace btEngine
             TEA_ERROR("Graphics System fail to initialze");
         }
 
-		if (!mScriptCore->initialize())
+	if (!mScriptCore->initialize())
         {
-			TEA_ERROR("Scripting System fail to initialze");
-		}
+	    TEA_ERROR("Scripting System fail to initialze");
+	}
     
-		TEA_INFO("Engine and its systems initialized succesfully");
+	TEA_INFO("Engine and its systems initialized succesfully");
 
-		TeaComponents::ComponentManager::registerComponentMap();
+	TeaComponents::ComponentManager::registerComponentMap();
         TeaComponents::ComponentManager::printRegisteredComponents();
         return true;
     }
    
-    void Engine::shutdown(entt::registry* registry) {
-		
-		// Terminate system in reverse order relative to initializations
+    void Engine::shutdown(entt::registry* registry) {	
+	// Terminate system in reverse order relative to initializations
         graphicsSystem->shutdown(registry);
         particleSystem->shutdown(registry);
         audioSystem->shutdown(registry);
-		physicsSystem->shutdown(registry);
+	physicsSystem->shutdown(registry);
         mScriptRuntime->shutdown(registry);
-		mScriptCore->shutdown(registry);
-
+	mScriptCore->shutdown(registry);
     }
 }
